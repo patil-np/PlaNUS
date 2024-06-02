@@ -36,8 +36,12 @@ const LoginScreen = () => {
                 case 'auth/invalid-email':
                     alert('Invalid email. Email not signed up or not an NUS email.');
                     break;
-                case 'auth/weak-password':
-                    alert('Password is too weak. Please choose a stronger password.');
+                case 'auth/wrong-password': 
+                    alert('Incorrect password. Please try again.');
+                case 'auth/user-not-fount':
+                    alert('The account does not exist.');
+                default:
+                    alert(error.message);
             }
         });
     };
