@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "fakePlanus",
+    "name": "PlaNUS",
     "slug": "fakePlanus",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,20 +12,33 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "PlaNUS-M1",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.fakePlanus"
+      "package": "com.anonymous.fakePlanus",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f60b928e-0317-42a3-86cc-c0db13658d1d"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f60b928e-0317-42a3-86cc-c0db13658d1d"
+    }
   }
 }
