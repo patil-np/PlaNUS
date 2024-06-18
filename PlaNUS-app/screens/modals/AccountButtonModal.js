@@ -1,4 +1,4 @@
-import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { auth } from '../../firebase';
@@ -7,11 +7,15 @@ import { useNavigation } from '@react-navigation/core';
 
 const AccountButtonModal = ({modalVisible, setModalVisible}) => {
     const navigation = useNavigation(); 
+    
     const goToInformation = () => {
         navigation.navigate('Information');
         setModalVisible(false);
     };
-
+    const goToAccount = () => {
+        navigation.navigate('Account'); 
+        setModalVisible(false);
+    }
     //log out function
     const handleLogout = async () => { 
         try {
@@ -29,44 +33,48 @@ const AccountButtonModal = ({modalVisible, setModalVisible}) => {
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
     >
-        <View style={styles.modalBackground}>
-            <View style={styles.modalView}>
+        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+            <View style={styles.modalBackground}>
+                <TouchableWithoutFeedback>
+                    <View style={styles.modalView}>
 
-                {/* close button */}
-                <TouchableOpacity
-                    style={styles.closeButton}
-                    onPress={() => setModalVisible(false)}
-                >
-                    <Ionicons name='close' size={20} color='black'/>
-                </TouchableOpacity>
+                        {/* close button */}
+                        <TouchableOpacity
+                            style={styles.closeButton}
+                            onPress={() => setModalVisible(false)}
+                        >
+                            <Ionicons name='close' size={20} color='black'/>
+                        </TouchableOpacity>
 
-                {/* Buttons to toggle to different screens/log out */}
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => {}}
-                >
-                    <Text style={styles.text}>Account</Text>
-                </TouchableOpacity>
+                        {/* Buttons to toggle to different screens/log out */}
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={goToAccount}
+                        >
+                            <Text style={styles.text}>Account</Text>
+                        </TouchableOpacity>
 
-                <View style={styles.divider} />
+                        <View style={styles.divider} />
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={goToInformation}
-                >
-                    <Text style={styles.text}>Information</Text>
-                </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={goToInformation}
+                        >
+                            <Text style={styles.text}>Information</Text>
+                        </TouchableOpacity>
 
-                <View style={styles.divider} />
+                        <View style={styles.divider} />
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={handleLogout}
-                >
-                    <Text style={styles.text}>Log Out</Text>
-                </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={handleLogout}
+                        >
+                            <Text style={styles.text}>Log Out</Text>
+                        </TouchableOpacity>
+                    </View>
+                </TouchableWithoutFeedback>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     </Modal>
   )
 }

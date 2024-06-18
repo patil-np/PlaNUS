@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
@@ -9,6 +9,10 @@ import AccountButtonModal from './modals/AccountButtonModal';
 const HomeScreen = () => {
 
   const navigation = useNavigation(); 
+  const goToCalendar = () => {
+    navigation.navigate('Calendar'); 
+    setAccountModalVisible(false);
+  };
   
   //to handle AccountButtonModal
   const [accountModalVisible, setAccountModalVisible] = useState(false);
@@ -31,29 +35,29 @@ const HomeScreen = () => {
         What's up?
       </Text>
 
-      <TouchableHighlight 
+      <TouchableOpacity
         style={[styles.buttonContainer, {marginTop: 55}]}
-        underlayColor={'#003882'}
-        activeOpacity={0.5}
-        onPress={() => {}}>
+        // underlayColor={'#003882'}
+        // activeOpacity={0.5}
+        onPress={goToCalendar}>
         <Text style={[styles.text, {color:'white'}]}>Your Schedule</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
-      <TouchableHighlight 
+      <TouchableOpacity
         style={styles.buttonContainer}
-        underlayColor={'#003882'}
-        activeOpacity={0.5}
+        // underlayColor={'#003882'}
+        // activeOpacity={0.5}
         onPress={() => {}}>
         <Text style={[styles.text, {color:'white'}]}>Future Semester Plan</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
-      <TouchableHighlight 
+      <TouchableOpacity
         style={styles.buttonContainer}
-        underlayColor={'#003882'}
-        activeOpacity={0.5}
+        // underlayColor={'#003882'}
+        // activeOpacity={0.5}
         onPress={() => {}}>
         <Text style={[styles.text, {color:'white'}]}>Prioritize Your Task</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
       {/* account button modal is activated upon pressing account button */}
       <AccountButtonModal

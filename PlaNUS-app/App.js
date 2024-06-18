@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react'; 
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,6 +9,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
 import InformationScreen from './screens/InformationScreen';
+import CalendarGridScreen from './screens/CalendarGridScreen';
+import AccountScreen from './screens/AccountScreen';
 
 const Stack = createNativeStackNavigator(); 
 
@@ -52,6 +53,8 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Information" component={InformationScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Calendar" component={CalendarGridScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Account" component={AccountScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
