@@ -9,6 +9,7 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
+import InformationScreen from './screens/InformationScreen';
 
 const Stack = createNativeStackNavigator(); 
 
@@ -21,7 +22,8 @@ function App() {
   const loadFonts = async () => {
     await Font.loadAsync({
       'Ubuntu-Regular': require('./assets/Fonts/Ubuntu/Ubuntu-Regular.ttf'),
-      'Ubuntu-Bold': require('./assets/Fonts/Ubuntu/Ubuntu-Bold.ttf')
+      'Ubuntu-Bold': require('./assets/Fonts/Ubuntu/Ubuntu-Bold.ttf'),
+      'Ubuntu-Medium': require('./assets/Fonts/Ubuntu/Ubuntu-Medium.ttf')
     });
     setFontsLoaded(true); 
   }; 
@@ -49,6 +51,7 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Information" component={InformationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
